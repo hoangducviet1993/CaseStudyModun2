@@ -9,13 +9,12 @@ public class UserManage implements UserService<User> {
     private static ArrayList<User> users;
 
     private UserManage(){
-
     }
     private static UserManage usersList;
 
     public static UserManage getUsersList() {
         if (usersList == null) usersList = new UserManage();
-        return usersList;public
+        return usersList;
     }
 
     public static ArrayList<User> getUsers() {
