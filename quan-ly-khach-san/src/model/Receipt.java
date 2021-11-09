@@ -1,23 +1,23 @@
 package model;
 
-public class Receipt {
+public class Receipt implements Comparable<Receipt> {
     private String receiptId ;
-    private int roomId;
     private String customerName;
     private String staffName;
     private String checkIn;
     private String checkOut;
+    private int roomId;
 
     public Receipt() {
     }
 
-    public Receipt(String receiptId, int roomId, String customerName, String staffName, String checkIn, String checkOut) {
+    public Receipt(String receiptId, String customerName, String staffName, String checkIn, String checkOut, int roomId) {
         this.receiptId = receiptId;
-        this.roomId = roomId;
         this.customerName = customerName;
         this.staffName = staffName;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        this.roomId = roomId;
     }
 
     public String getReceiptId() {
@@ -67,16 +67,19 @@ public class Receipt {
     public void setCheckOut(String checkOut) {
         this.checkOut = checkOut;
     }
+    public long getTotalPrice(){
+        return -1;
+    }
 
     @Override
     public String toString() {
-        return "Receipt{" +
-                "receiptId='" + receiptId + '\'' +
-                ", roomId=" + roomId +
-                ", customerName='" + customerName + '\'' +
-                ", staffName='" + staffName + '\'' +
-                ", checkIn='" + checkIn + '\'' +
-                ", checkOut='" + checkOut + '\'' +
-                '}';
+        return String.format("%-15s %-20s %-20s %-15s %-15s %-15d", receiptId, customerName, staffName, checkIn, checkOut,getTotalPrice());
+    }
+
+    @Override
+    public int compareTo(Receipt o) {
+        if (getReceiptId().compareTo(o.getReceiptId()) > 0) return 1;
+        else if (getReceiptId().compareTo(o.getReceiptId()) < 0) return -1;
+        return 0;
     }
 }

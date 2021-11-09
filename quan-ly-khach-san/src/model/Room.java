@@ -1,6 +1,6 @@
 package model;
 
-public class Room {
+public class Room implements Comparable<Room> {
     public static final String OCCUPIED = "Phòng đã được thuê: ";
     public static final String ON_CHANGE = "Phòng đang dọn dẹp/Bảo trì: ";
     public static final String READY = "Phòng trống: ";
@@ -84,14 +84,13 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "roomId=" + roomId +
-                ", price=" + price +
-                ", status='" + status + '\'' +
-                ", numberOfBeds=" + numberOfBeds +
-                ", numberOfToilet=" + numberOfToilet +
-                ", lastCheckIn='" + lastCheckIn + '\'' +
-                ", lastCheckOut='" + lastCheckOut + '\'' +
-                '}';
+        return String.format("%-10d %-10d %-20s %-15d %-15d", roomId, price, status, numberOfBeds, numberOfToilet);
+    }
+
+    @Override
+    public int compareTo(Room o) {
+        if (getRoomId() - o.getRoomId() > 0) return 1;
+        else if (getRoomId() - o.getRoomId() < 0) return -1;
+        return 0;
     }
 }
