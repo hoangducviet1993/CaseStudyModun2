@@ -9,45 +9,6 @@ import java.util.Scanner;
 public class UserCreate {
     public static final Scanner SCANNER = new Scanner(System.in);
 
-    public static User createUse() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhập UserName:");
-        String username = scanner.nextLine();
-
-        System.out.println("Nhập Password: ");
-        String password = scanner.nextLine();
-        while (!(Validation.validate(password, Validation.PASSWORD_REGEX))) {
-            try {
-                System.err.println("Password không hợp lệ: ");
-                password = scanner.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("Error!!!!");
-            }
-        }
-        System.out.println("Nhập Tên người dùng: ");
-        String name = scanner.nextLine();
-        System.out.println("Nhập số Phone Number: ");
-        String phoneNumber = scanner.nextLine();
-        while (!(Validation.validate(phoneNumber, Validation.PHONE_NUMBER_REGEX))) {
-            try {
-                System.err.println("Phone Number không hợp lệ: ");
-                phoneNumber = scanner.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("Error!!!!");
-            }
-        }
-        System.out.println("Nhập Email:");
-        String email = scanner.nextLine();
-        while (!(Validation.validate(email, Validation.EMAIL_REGEX))) {
-            try {
-                System.err.println("Email không hợp lệ: ");
-                email = scanner.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("Error!!!!");
-            }
-        }
-        return new User( name,18, phoneNumber, email,username, password);
-    }
     public static String createRegisterUserName() {
         System.out.print("Nhập tên đăng nhập: ");
         String username = SCANNER.nextLine();

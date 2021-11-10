@@ -16,6 +16,14 @@ public class Room implements Comparable<Room> {
     public Room() {
     }
 
+    public Room(int roomId, int price, String status, int numberOfBeds, int numberOfToilet) {
+        this.roomId = roomId;
+        this.price = price;
+        this.status = status;
+        this.numberOfBeds = numberOfBeds;
+        this.numberOfToilet = numberOfToilet;
+    }
+
     public Room(int roomId, int price, String status, int numberOfBeds, int numberOfToilet, String lastCheckIn, String lastCheckOut) {
         this.roomId = roomId;
         this.price = price;
