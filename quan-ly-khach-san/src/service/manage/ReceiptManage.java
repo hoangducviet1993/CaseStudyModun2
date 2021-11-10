@@ -33,7 +33,7 @@ public class ReceiptManage implements ReceiptService<Receipt> {
         ReceiptManage.receiptsList = receiptsList;
     }
 
-    public  void setReceiptManage(ReceiptManage receiptManage) {
+    public void setReceiptManage(ReceiptManage receiptManage) {
         ReceiptManage.receiptManage = receiptManage;
     }
 
@@ -49,7 +49,8 @@ public class ReceiptManage implements ReceiptService<Receipt> {
             if (receiptsList.get(i).getReceiptId().equals(receiptId)) {
                 return i;
             }
-        } return -1;
+        }
+        return -1;
     }
 
     @Override

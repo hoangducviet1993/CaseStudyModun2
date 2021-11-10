@@ -28,6 +28,7 @@ public class ReceiptFile {
         bufferedWriter.write(str.toString());
         bufferedWriter.close();
     }
+
     public static void readReceiptFromFile() throws IOException {
         ArrayList<Receipt> receiptList = new ArrayList<>();
         FileReader fileReader = new FileReader("src/fileIO/receiptManageFile.csv");

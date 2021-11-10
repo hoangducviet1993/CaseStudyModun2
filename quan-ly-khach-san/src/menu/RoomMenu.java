@@ -29,7 +29,7 @@ public class RoomMenu {
                     break;
                 case 3:
                     int roomId1 = RoomCreate.createOldRoomId();
-                    RoomManage.getRoomManage().doCheckOut(username,roomId1);
+                    RoomManage.getRoomManage().doCheckOut(username, roomId1);
                     break;
                 case 4:
                     int roomId2 = RoomCreate.createOldRoomId();
@@ -56,7 +56,7 @@ public class RoomMenu {
                     RoomManage.getRoomManage().delete(id);
                     break;
                 case 0:
-                    System.exit(0);
+//                    System.exit(0);
             }
         }
     }

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 public class Receipt implements Comparable<Receipt> {
-    private String receiptId ;
+    private String receiptId;
     private String customerName;
     private String staffName;
     private String checkIn;
@@ -73,6 +73,7 @@ public class Receipt implements Comparable<Receipt> {
     public void setCheckOut(String checkOut) {
         this.checkOut = checkOut;
     }
+
     public long getTotalPrice() throws ParseException {
         int roomPrice = RoomManage.getRoomManage().getRoomsList().get(RoomManage.getRoomManage().findIndexById(roomId)).getPrice();
         long dateCal = DateCalculator.dateCalculator(checkIn, checkOut);

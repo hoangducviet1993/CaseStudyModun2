@@ -38,10 +38,10 @@ public class LoginMenu {
                         RoomMenu.roomManage(username);
                         break;
                     case 3:
-                       ReceiptMenu.receiptManager(username);
+                        ReceiptMenu.receiptManager(username);
                         break;
                     case 0:
-                        System.exit(0);
+//                        System.exit(0);
                 }
             }
         } else {

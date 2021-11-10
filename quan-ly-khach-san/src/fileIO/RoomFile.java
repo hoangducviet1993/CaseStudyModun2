@@ -25,6 +25,7 @@ public class RoomFile {
         bufferedWriter.write(str.toString());
         bufferedWriter.close();
     }
+
     public static void readRoomFromFile() throws IOException {
         ArrayList<Room> roomList = new ArrayList<>();
         FileReader fileReader = new FileReader("src/fileIO/roomManageFile.csv");

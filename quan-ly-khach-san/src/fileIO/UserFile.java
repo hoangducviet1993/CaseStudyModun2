@@ -23,6 +23,7 @@ public class UserFile {
         bufferedWriter.write(str.toString());
         bufferedWriter.close();
     }
+
     public static void readUserFromFile() throws IOException {
         ArrayList<User> usersList = new ArrayList<>();
         FileReader fileReader = new FileReader("src/fileIO/userManageFile.csv");

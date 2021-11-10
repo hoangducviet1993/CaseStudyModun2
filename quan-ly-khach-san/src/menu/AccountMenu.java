@@ -54,7 +54,7 @@ public class AccountMenu {
                     deleteUser(username);
                     break;
                 case 0:
-                    System.exit(0);
+//                    System.exit(0);
             }
         }
     }
