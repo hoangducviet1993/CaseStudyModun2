@@ -15,11 +15,25 @@ public class UserManage implements UserService<User> {
 
     public static UserManage getUserManage() {
         if (userManage == null) userManage = new UserManage();
+
         return userManage;
     }
 
-    public static ArrayList<User> getUsersList() {
+    public  ArrayList<User> getUsersList() {
+        if (usersList == null){
+            usersList = new ArrayList<>();
+//            usersList.add(new User( "Hoàng Đức Việt",27,"0868999600","ducviet12vl@gmail.com","ducviet006","ducviet93"));
+//            usersList.add(new User("Việt Hoàng",28,"0358389993","hoangviet12vl@gmail.com","ducviet007","ducviet88"));
+        }
         return usersList;
+    }
+
+    public void setUsersList(ArrayList<User> usersList) {
+        UserManage.usersList = usersList;
+    }
+
+    public static void setUserManage(UserManage userManage) {
+        UserManage.userManage = userManage;
     }
 
     @Override

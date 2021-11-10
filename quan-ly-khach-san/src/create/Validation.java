@@ -1,5 +1,7 @@
 package create;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,4 +19,17 @@ public class Validation {
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();
     }
+    public static int choiceExceptionHandling() {
+        Scanner scanner = new Scanner(System.in);
+        int choice = -1;
+        try {
+            choice = scanner.nextInt();
+        } catch (InputMismatchException exception) {
+            System.err.println("Nhập số nguyên!");
+        } finally {
+            scanner.nextLine();
+        }
+        return choice;
+    }
+
 }

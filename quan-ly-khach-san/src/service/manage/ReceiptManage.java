@@ -19,7 +19,7 @@ public class ReceiptManage implements ReceiptService<Receipt> {
         return receiptManage;
     }
 
-    public static ArrayList<Receipt> getReceiptsList() {
+    public ArrayList<Receipt> getReceiptsList() {
         return receiptsList;
     }
 
