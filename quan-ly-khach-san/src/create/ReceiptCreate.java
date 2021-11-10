@@ -3,7 +3,6 @@ package create;
 import model.Receipt;
 import service.manage.ReceiptManage;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
