@@ -19,9 +19,16 @@ public class ReceiptCreate {
         }
         return receiptId;
     }
-
+    public static String createOldReceiptId() {
+        System.out.print("Nhập số hóa đơn: ");
+        String receiptId = SCANNER.nextLine();
+        while (ReceiptManage.getReceiptManage().findIndexById(receiptId) == -1) {
+            System.out.println("Số hóa đơn không tồn tại, vui lòng nhập lại");
+            receiptId = SCANNER.nextLine();
+        }
+        return receiptId;
+    }
     public static String createDate(){
-        System.out.println("Nhập ngày (dd/MM/yyyy): ");
         String date = SCANNER.nextLine();
         while (!Validation.validate(date, Validation.DATE_REGEX)) {
                 System.err.println("Ngày không hợp lệ:");
@@ -32,7 +39,7 @@ public class ReceiptCreate {
 
     public static Receipt createReceipt() throws ParseException {
         String receiptId = createNewReceiptId();
-        int roomId = RoomCreate.createRoomId();
+        int roomId = RoomCreate.createOldRoomId();
         System.out.print("Nhập tên khách hàng: ");
         String customerName = SCANNER.nextLine();
         System.out.print("Nhập tên nhân viên: ");

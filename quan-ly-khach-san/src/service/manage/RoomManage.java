@@ -22,6 +22,7 @@ public class RoomManage implements RoomService<Room> {
     private static ArrayList<Room> roomsList;
 
     private RoomManage() {
+       roomsList = new ArrayList<>();
     }
 
     private static RoomManage roomManage;
@@ -162,7 +163,6 @@ public class RoomManage implements RoomService<Room> {
         User user = userManage.getUsersList().get(userManage.findIndexByUsername(username));
         if (room.getStatus().equals(Room.OCCUPIED)) {
             String receiptId = ReceiptCreate.createNewReceiptId();
-            System.out.print("Nhập tên khách hàng: ");
             String customerName = UserCreate.createName();
             String staffName = user.getName();
             String checkInTime = room.getLastCheckIn();

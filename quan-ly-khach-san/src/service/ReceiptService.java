@@ -7,8 +7,8 @@ public interface ReceiptService <T>{
     void add(T t) throws IOException, ParseException;
     int findIndexById(String receiptId);
     int findIndexByRoomId(int roomId);
-    void edit(String receiptId, T t);
+    void edit() throws ParseException, IOException;
     void delete(String receiptId) throws IOException, ParseException;
     void displayAllReceipt();
-    void displayReceiptListByDay(String startDay, String endDay);
+    void displayReceiptListByDay(String startDay, String endDay) throws ParseException;
 }

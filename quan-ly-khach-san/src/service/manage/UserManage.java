@@ -11,6 +11,7 @@ public class UserManage implements UserService<User> {
     private static ArrayList<User> usersList;
 
     private UserManage() {
+        usersList = new ArrayList<>();
     }
 
     private static UserManage userManage;

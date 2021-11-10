@@ -38,7 +38,7 @@ public class LoginMenu {
                         RoomMenu.roomManage(username);
                         break;
                     case 3:
-//                        MenuReceipt.receiptManager(username);
+                       ReceiptMenu.receiptManager(username);
                         break;
                     case 0:
                         System.exit(0);
