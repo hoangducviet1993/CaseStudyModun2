@@ -20,7 +20,7 @@ public class LoginMenu {
             username = SCANNER.nextLine();
             index = UserManage.getUserManage().findIndexByUsername(username);
         }
-        User user = UserManage.getUserManage().getUsersList().get(index);
+//        User user = UserManage.getUserManage().getUsersList().get(index);
         System.out.print("Nhập mật khẩu: ");
         String password = SCANNER.nextLine();
         if (AccountMenu.login(username, password)) {
@@ -28,6 +28,7 @@ public class LoginMenu {
             int choice = -1;
             while (choice != 0) {
                 ShowMenu.showManageMenu();
+                System.out.println("Nhập lựa chọn: ");
                 choice = Validation.choiceExceptionHandling();
                 switch (choice) {
                     case 1:

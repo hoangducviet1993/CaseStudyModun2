@@ -1,9 +1,18 @@
 package service.manage;
 
+import create.ReceiptCreate;
 import create.RoomCreate;
+import create.UserCreate;
+import fileIO.RoomFile;
+import model.Receipt;
 import model.Room;
+import model.User;
 import service.RoomService;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
@@ -25,9 +34,9 @@ public class RoomManage implements RoomService<Room> {
     public  ArrayList<Room> getRoomsList() {
         if (roomsList == null) {
             roomsList = new ArrayList<>();
-            roomsList.add(new Room(101, 10000, Room.READY, 1, 2));
-            roomsList.add(new Room(102, 10000, Room.READY, 1, 1));
-            roomsList.add(new Room(103, 20000, Room.READY, 2, 2));
+            roomsList.add(new Room(101, 10000, Room.READY, 1, 2,"06/11/2021","10/11/2021"));
+            roomsList.add(new Room(102, 10000, Room.READY, 1, 1,"7/11/2021","10/11/2021"));
+            roomsList.add(new Room(103, 20000, Room.READY, 2, 2,"7/11/2021","10/11/2021"));
         }
         return roomsList;
     }
@@ -135,6 +144,55 @@ public class RoomManage implements RoomService<Room> {
         System.out.println("_____________________________________________________________________");
         System.out.println();
     }
+    public void doCheckIn(int roomId) throws IOException {
+        Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
+        if (room.getStatus().equals(Room.READY)) {
+            room.setStatus(Room.OCCUPIED);
+            room.setLastCheckIn(java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            RoomFile.writeRoomToFile();
+            System.out.println("Đã hoàn tất thủ tục check-in. Thời gian: " + java.time.LocalDate.now());
+            System.out.println();
+        } else {
+            System.err.println("Không thể hoàn tất thủ tục check-in. Phòng đang ở trạng thái: " + room.getStatus());
+        }
+    }
+    public void doCheckOut(String username, int roomId) throws IOException, ParseException {
+        Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
+        UserManage userManage = UserManage.getUserManage();
+        User user = userManage.getUsersList().get(userManage.findIndexByUsername(username));
+        if (room.getStatus().equals(Room.OCCUPIED)) {
+            String receiptId = ReceiptCreate.createNewReceiptId();
+            System.out.print("Nhập tên khách hàng: ");
+            String customerName = UserCreate.createName();
+            String staffName = user.getName();
+            String checkInTime = room.getLastCheckIn();
+            String checkOutTime = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            Receipt receipt = new Receipt(receiptId, customerName, staffName, checkInTime, checkOutTime, roomId);
+            ReceiptManage.getReceiptManage().add(receipt);
+            room.setStatus(Room.ON_CHANGE);
+            room.setLastCheckOut(checkOutTime);
+            RoomFile.writeRoomToFile();
+            System.out.println("Đã hoàn tất thủ tục check-out. Thời gian: " + LocalDate.now());
+            System.out.println();
+            System.out.println("_____________________________________*** Thông tin hóa đơn *** _____________________________________");
+            System.out.println();
+            System.out.printf("%-15s %-20s %-20s %-15s %-15s %-15s %n", "Số hóa đơn", "Khách hàng", "Nhân viên", "Ngày check-in", "Ngày check-out", "Tổng tiền");
+            System.out.println(receipt);
+            System.out.println("____________________________________________________________________________________________________");
+            System.out.println();
+        } else {
+            System.err.println("Không thể hoàn tất thủ tục check-out. Phòng đang ở trạng thái: " + room.getStatus());
+        }
+    }
+    public void cleanTheRoom(int roomId) throws IOException {
+        Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
+        if (room.cleanTheRoom()) {
+            System.out.println("Đã dọn dẹp phòng xong");
+            System.out.println();
+        } else {
+            System.err.println("Không thể dọn dẹp. Phòng đang ở trạng thái: " + room.getStatus());
+        }
+    }
 
     public  void findInformationById() {
         int roomId = 0;
@@ -144,10 +202,10 @@ public class RoomManage implements RoomService<Room> {
             try {
                 roomId = sc.nextInt();
                 if (findIndexById(roomId) == -1) {
-                    System.err.println("Phòng không tồn tại. Vui lòng nhập lại.");
+                    System.err.println("Phòng không tồn tại: ");
                 }
             } catch (InputMismatchException e) {
-                System.err.println("Số phòng không hợp lệ. Vui lòng nhập lại");
+                System.err.println("Số phòng không hợp lệ: ");
             }
         }
         displayInformationById(roomId);

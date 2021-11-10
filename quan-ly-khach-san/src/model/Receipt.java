@@ -1,5 +1,11 @@
 package model;
 
+import create.DateCalculator;
+import service.manage.RoomManage;
+
+import java.io.IOException;
+import java.text.ParseException;
+
 public class Receipt implements Comparable<Receipt> {
     private String receiptId ;
     private String customerName;
@@ -67,13 +73,21 @@ public class Receipt implements Comparable<Receipt> {
     public void setCheckOut(String checkOut) {
         this.checkOut = checkOut;
     }
-    public long getTotalPrice(){
-        return -1;
+    public long getTotalPrice() throws ParseException {
+        int roomPrice = RoomManage.getRoomManage().getRoomsList().get(RoomManage.getRoomManage().findIndexById(roomId)).getPrice();
+        long dateCal = DateCalculator.dateCalculator(checkIn, checkOut);
+        return roomPrice * (dateCal + 1);
     }
 
     @Override
     public String toString() {
-        return String.format("%-15s %-20s %-20s %-15s %-15s %-15d", receiptId, customerName, staffName, checkIn, checkOut,getTotalPrice());
+        String str = null;
+        try {
+            str = String.format("%-15s %-20s %-20s %-15s %-15s %-15d", receiptId, customerName, staffName, checkIn, checkOut, getTotalPrice());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 
     @Override

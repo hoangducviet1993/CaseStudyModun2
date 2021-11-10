@@ -10,35 +10,27 @@ import java.util.Scanner;
 public class ReceiptCreate {
     public static final Scanner SCANNER = new Scanner(System.in);
 
-    public String createNewReceiptId() {
+    public static String createNewReceiptId() {
         System.out.print("Nhập số hóa đơn: ");
         String receiptId = SCANNER.nextLine();
         while (ReceiptManage.getReceiptManage().findIndexById(receiptId) != -1) {
-            try {
                 System.out.println("Số hóa đơn đã tồn tại:");
                 receiptId = SCANNER.nextLine();
-            }catch (InputMismatchException e){
-                System.err.println("Error!!!!");
-            }
         }
         return receiptId;
     }
 
-    public  String createDate(){
+    public static String createDate(){
         System.out.println("Nhập ngày (dd/MM/yyyy): ");
         String date = SCANNER.nextLine();
         while (!Validation.validate(date, Validation.DATE_REGEX)) {
-            try{
                 System.err.println("Ngày không hợp lệ:");
                 date = SCANNER.nextLine();
-            } catch (InputMismatchException e){
-                System.err.println("Error!!!!");
-            }
         }
         return date;
     }
 
-    public Receipt createReceipt() throws ParseException {
+    public static Receipt createReceipt() throws ParseException {
         String receiptId = createNewReceiptId();
         int roomId = RoomCreate.createRoomId();
         System.out.print("Nhập tên khách hàng: ");

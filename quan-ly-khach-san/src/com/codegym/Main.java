@@ -1,5 +1,6 @@
 package com.codegym;
 
+import fileIO.ReceiptFile;
 import fileIO.RoomFile;
 import fileIO.UserFile;
 import menu.GeneralMenu;
@@ -13,17 +14,6 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws ParseException, IOException {
-//        UserManage.getUserManage().getUsersList();
-//        UserFile.writeUserToFile();
-//        UserFile.readUserFromFile();
-//        RoomManage.getRoomManage().getRoomsList();
-//        RoomFile.writeRoomToFile();
-//        RoomFile.readRoomFromFile();
-	// write your code here2
-//        ShowMenu.showLoginMenu();
-//        ShowMenu.showManageMenu();
-//        ShowMenu.showRoomMenu();
-//        ShowMenu.showReceiptMenu();
         GeneralMenu.MainMenu();
     }
 }

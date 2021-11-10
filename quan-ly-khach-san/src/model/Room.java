@@ -1,9 +1,14 @@
 package model;
 
+import fileIO.RoomFile;
+
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+
 public class Room implements Comparable<Room> {
-    public static final String OCCUPIED = "Phòng đã được thuê: ";
-    public static final String ON_CHANGE = "Phòng đang dọn dẹp/Bảo trì: ";
-    public static final String READY = "Phòng trống: ";
+    public static final String OCCUPIED = "Phòng đã được thuê";
+    public static final String ON_CHANGE = "Phòng đang dọn dẹp / Bảo trì";
+    public static final String READY = "Phòng trống";
 
     private int roomId;
     private int price;
@@ -14,14 +19,6 @@ public class Room implements Comparable<Room> {
     private String lastCheckOut;
 
     public Room() {
-    }
-
-    public Room(int roomId, int price, String status, int numberOfBeds, int numberOfToilet) {
-        this.roomId = roomId;
-        this.price = price;
-        this.status = status;
-        this.numberOfBeds = numberOfBeds;
-        this.numberOfToilet = numberOfToilet;
     }
 
     public Room(int roomId, int price, String status, int numberOfBeds, int numberOfToilet, String lastCheckIn, String lastCheckOut) {
@@ -93,6 +90,17 @@ public class Room implements Comparable<Room> {
     @Override
     public String toString() {
         return String.format("%-10d %-10d %-20s %-15d %-15d", roomId, price, status, numberOfBeds, numberOfToilet);
+    }
+
+
+    public boolean cleanTheRoom() throws IOException {
+        if (this.getStatus().equals(Room.ON_CHANGE)) {
+            this.setStatus(Room.READY);
+            RoomFile.writeRoomToFile();
+            RoomFile.readRoomFromFile();
+            return true;
+        }
+        return false;
     }
 
     @Override

@@ -1,8 +1,11 @@
 package service.manage;
 
+import fileIO.ReceiptFile;
 import model.Receipt;
 import service.ReceiptService;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,6 +13,7 @@ public class ReceiptManage implements ReceiptService<Receipt> {
     private static ArrayList<Receipt> receiptsList;
 
     private ReceiptManage() {
+//        receiptsList = new ArrayList<>();
     }
 
     private static ReceiptManage receiptManage;
@@ -23,9 +27,18 @@ public class ReceiptManage implements ReceiptService<Receipt> {
         return receiptsList;
     }
 
+    public void setReceiptsList(ArrayList<Receipt> receiptsList) {
+        ReceiptManage.receiptsList = receiptsList;
+    }
+
+    public  void setReceiptManage(ReceiptManage receiptManage) {
+        ReceiptManage.receiptManage = receiptManage;
+    }
+
     @Override
-    public void add(Receipt receipt) {
+    public void add(Receipt receipt) throws IOException, ParseException {
         receiptsList.add(receipt);
+        ReceiptFile.writeReceiptToFile();
     }
 
     @Override
@@ -53,8 +66,9 @@ public class ReceiptManage implements ReceiptService<Receipt> {
     }
 
     @Override
-    public void delete(String receiptId) {
+    public void delete(String receiptId) throws IOException, ParseException {
         receiptsList.remove(findIndexById(receiptId));
+        ReceiptFile.writeReceiptToFile();
     }
 
     @Override

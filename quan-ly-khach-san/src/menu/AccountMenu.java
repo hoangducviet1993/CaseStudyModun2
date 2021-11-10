@@ -41,6 +41,7 @@ public class AccountMenu {
         int choice = -1;
         while (choice != 0) {
             ShowMenu.showAccountMenu();
+            System.out.println("Nhập lựa chọn: ");
             choice = Validation.choiceExceptionHandling();
             switch (choice) {
                 case 1:

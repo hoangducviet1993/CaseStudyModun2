@@ -3,13 +3,33 @@ package create;
 import model.Room;
 import service.manage.RoomManage;
 
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RoomCreate {
     public static final Scanner SCANNER = new Scanner(System.in);
 
-
+    public static int createOldRoomId() {
+        System.out.print("Nhập số phòng: ");
+        int roomId = -1;
+        while (RoomManage.getRoomManage().findIndexById(roomId) == -1 || roomId < 0) {
+            try {
+                roomId = SCANNER.nextInt();
+                if (RoomManage.getRoomManage().findIndexById(roomId) == -1) {
+                    System.err.println("Phòng không ồn tại: ");
+                }
+                if (roomId < 0) {
+                    System.err.println("Số phòng không hợp lệ: ");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Error!! ");
+            } finally {
+                SCANNER.nextLine();
+            }
+        }
+        return roomId;
+    }
     public static int createRoomId() {
         System.out.println("Nhập số phòng: ");
         int roomId = -1;
@@ -24,6 +44,8 @@ public class RoomCreate {
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!! ");
+            }finally {
+                SCANNER.nextLine();
             }
         }
         return roomId;
@@ -82,7 +104,9 @@ public class RoomCreate {
         int numberOfBed = createNumberOfBeds();
         int numberOfToilet = createNumberOfToilet();
         int price = createPrice();
-        return new Room(roomId, price, Room.READY, numberOfBed, numberOfToilet);
+        String lastCheckIn = java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String lastCheckOut = java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        return new Room(roomId, price, Room.READY, numberOfBed, numberOfToilet,lastCheckIn,lastCheckOut);
     }
 
 }
