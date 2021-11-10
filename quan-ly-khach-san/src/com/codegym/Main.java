@@ -1,8 +1,10 @@
 package com.codegym;
 
+import fileIO.RoomFile;
 import fileIO.UserFile;
 import menu.GeneralMenu;
 import menu.ShowMenu;
+import service.manage.RoomManage;
 import service.manage.UserManage;
 
 import java.io.IOException;
@@ -14,7 +16,10 @@ public class Main {
 //        UserManage.getUserManage().getUsersList();
 //        UserFile.writeUserToFile();
 //        UserFile.readUserFromFile();
-	// write your code here
+//        RoomManage.getRoomManage().getRoomsList();
+//        RoomFile.writeRoomToFile();
+//        RoomFile.readRoomFromFile();
+	// write your code here2
 //        ShowMenu.showLoginMenu();
 //        ShowMenu.showManageMenu();
 //        ShowMenu.showRoomMenu();

@@ -23,9 +23,22 @@ public class RoomManage implements RoomService<Room> {
     }
 
     public  ArrayList<Room> getRoomsList() {
+        if (roomsList == null) {
+            roomsList = new ArrayList<>();
+            roomsList.add(new Room(101, 10000, Room.READY, 1, 2));
+            roomsList.add(new Room(102, 10000, Room.READY, 1, 1));
+            roomsList.add(new Room(103, 20000, Room.READY, 2, 2));
+        }
         return roomsList;
     }
 
+    public void setRoomsList(ArrayList<Room> roomsList) {
+        RoomManage.roomsList = roomsList;
+    }
+
+    public void setRoomManage(RoomManage roomManage) {
+        RoomManage.roomManage = roomManage;
+    }
 
     @Override
     public void add(Room room) {
@@ -98,7 +111,7 @@ public class RoomManage implements RoomService<Room> {
     public void displayListRoom() {
         Collections.sort(roomsList);
         System.out.println();
-        System.out.println("________________________***  DANH SÁCH PHÒNG  ***________________________");
+        System.out.println("____________________***  DANH SÁCH TOÀN BỘ PHÒNG  ***_____________________");
         System.out.printf("%-10s %-10s %-20s %-15s %-15s %n", "Số phòng", "Giá phòng", "Trạng thái phòng", "Số giường ngủ", "Số nhà VS");
         System.out.println();
         for (Room room : roomsList) {

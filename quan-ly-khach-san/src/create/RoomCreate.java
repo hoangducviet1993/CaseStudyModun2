@@ -46,6 +46,7 @@ public class RoomCreate {
     }
 
     public static int createNumberOfToilet() {
+        System.out.println("Nhập số nhà vệ sinh:");
         int numberOfToilet = -1;
         while (numberOfToilet < 0) {
             try {
