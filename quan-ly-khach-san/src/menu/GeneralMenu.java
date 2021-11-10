@@ -7,14 +7,15 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class GeneralMenu {
+    public static final Scanner SCANNER = new Scanner(System.in);
+
     public static void MainMenu() throws ParseException, IOException {
         UserFile.readUserFromFile();
         int choice = -1;
         while (choice != 0) {
             ShowMenu.showLoginMenu();
             System.out.println("Nhập lựa chọn: ");
-            Scanner scanner = new Scanner(System.in);
-            choice = scanner.nextInt();
+            choice = SCANNER.nextInt();
             switch (choice) {
                 case 1:
                 LoginMenu.loginToSystem();
