@@ -34,7 +34,7 @@ public class LoginMenu {
                         AccountMenu.accountManage(username);
                         break;
                     case 2:
-//                        MenuRoom.roomManage(username);
+                        RoomMenu.roomManage(username);
                         break;
                     case 3:
 //                        MenuReceipt.receiptManager(username);

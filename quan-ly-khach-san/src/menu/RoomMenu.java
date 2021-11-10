@@ -2,6 +2,7 @@ package menu;
 
 import create.RoomCreate;
 import create.Validation;
+import fileIO.RoomFile;
 import service.manage.RoomManage;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ public class RoomMenu {
     public static final Scanner SCANNER = new Scanner(System.in);
 
     public static void roomManage(String username) throws IOException {
+        RoomFile.readRoomFromFile();
         int choice = -1;
         while (choice != 0) {
             ShowMenu.showRoomMenu();
