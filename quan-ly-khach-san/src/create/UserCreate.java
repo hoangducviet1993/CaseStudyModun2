@@ -22,6 +22,7 @@ public class UserCreate {
         }
         return username;
     }
+
     public static String createRegisterPassword() {
         System.out.print("Nhập mật khẩu: ");
         String password = SCANNER.nextLine();
@@ -35,6 +36,13 @@ public class UserCreate {
         }
         return password;
     }
+
+    public static String createName(){
+        System.out.print("Nhập tên người dùng: ");
+        String name = SCANNER.nextLine();
+        return name;
+    }
+
     public static int createAge() {
         System.out.print("Nhập tuổi: ");
         int age = 17 ;
@@ -42,7 +50,7 @@ public class UserCreate {
             try {
                 age = SCANNER.nextInt();
                 if(age < 18){
-                    System.out.println("Bạn phải từ 18 tuổi trở lên: ");
+                    System.err.println("Bạn phải từ 18 tuổi trở lên: ");
                 }
             } catch (InputMismatchException e){
                 System.err.println("Nhập số nguyên!:.");
@@ -52,11 +60,7 @@ public class UserCreate {
         }
         return age;
     }
-    public static String createName(){
-        System.out.println("Nhập tên người dùng: ");
-        String name = SCANNER.nextLine();
-        return name;
-    }
+
     public static String createPhoneNumber() {
         System.out.print("Nhập số điện thoại: ");
         String phoneNumber = SCANNER.nextLine();
@@ -70,6 +74,7 @@ public class UserCreate {
         }
         return phoneNumber;
     }
+
     public static String createEmail() {
         System.out.print("Nhập địa chỉ email: ");
         String email = SCANNER.nextLine();
@@ -83,6 +88,7 @@ public class UserCreate {
         }
         return email;
     }
+
     public static User createUser() {
         String username = createRegisterUserName();
         String password = createRegisterPassword();

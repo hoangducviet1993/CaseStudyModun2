@@ -19,7 +19,7 @@ public class RoomManage implements RoomService<Room> {
         return roomManage;
     }
 
-    public static ArrayList<Room> getRoomsList() {
+    public  ArrayList<Room> getRoomsList() {
         return roomsList;
     }
 
