@@ -30,6 +30,7 @@ public class RoomCreate {
         }
         return roomId;
     }
+
     public static int createRoomId() {
         System.out.println("Nhập số phòng: ");
         int roomId = -1;
@@ -44,7 +45,7 @@ public class RoomCreate {
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!! ");
-            }finally {
+            } finally {
                 SCANNER.nextLine();
             }
         }
@@ -106,7 +107,7 @@ public class RoomCreate {
         int price = createPrice();
         String lastCheckIn = java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String lastCheckOut = java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        return new Room(roomId, price, Room.READY, numberOfBed, numberOfToilet,lastCheckIn,lastCheckOut);
+        return new Room(roomId, price, Room.READY, numberOfBed, numberOfToilet, lastCheckIn, lastCheckOut);
     }
 
 }

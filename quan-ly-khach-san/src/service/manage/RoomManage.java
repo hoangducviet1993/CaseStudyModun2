@@ -22,7 +22,7 @@ public class RoomManage implements RoomService<Room> {
     private static ArrayList<Room> roomsList;
 
     private RoomManage() {
-       roomsList = new ArrayList<>();
+        roomsList = new ArrayList<>();
     }
 
     private static RoomManage roomManage;
@@ -32,12 +32,12 @@ public class RoomManage implements RoomService<Room> {
         return roomManage;
     }
 
-    public  ArrayList<Room> getRoomsList() {
+    public ArrayList<Room> getRoomsList() {
         if (roomsList == null) {
             roomsList = new ArrayList<>();
-            roomsList.add(new Room(101, 10000, Room.READY, 1, 2,"06/11/2021","10/11/2021"));
-            roomsList.add(new Room(102, 10000, Room.READY, 1, 1,"7/11/2021","10/11/2021"));
-            roomsList.add(new Room(103, 20000, Room.READY, 2, 2,"7/11/2021","10/11/2021"));
+            roomsList.add(new Room(101, 10000, Room.READY, 1, 2, "06/11/2021", "10/11/2021"));
+            roomsList.add(new Room(102, 10000, Room.READY, 1, 1, "7/11/2021", "10/11/2021"));
+            roomsList.add(new Room(103, 20000, Room.READY, 2, 2, "7/11/2021", "10/11/2021"));
         }
         return roomsList;
     }
@@ -61,7 +61,8 @@ public class RoomManage implements RoomService<Room> {
             if (roomsList.get(i).getRoomId() == roomId) {
                 return i;
             }
-        } return -1;
+        }
+        return -1;
     }
 
     @Override
@@ -109,7 +110,7 @@ public class RoomManage implements RoomService<Room> {
     public void displayInformationById(int roomId) {
         Room room = getRoomsList().get(getRoomManage().findIndexById(roomId));
         System.out.println();
-        System.out.println("______________________***  THÔNG TIN VỀ PHÒNG "+ roomId +" ***______________________");
+        System.out.println("______________________***  THÔNG TIN VỀ PHÒNG " + roomId + " ***______________________");
         System.out.printf("%-10s %-10s %-20s %-15s %-15s %n", "Số phòng", "Giá phòng", "Trạng thái phòng", "Số giường ngủ", "Số nhà VS");
         System.out.println();
         System.out.println(room);
@@ -145,6 +146,7 @@ public class RoomManage implements RoomService<Room> {
         System.out.println("_____________________________________________________________________");
         System.out.println();
     }
+
     public void doCheckIn(int roomId) throws IOException {
         Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
         if (room.getStatus().equals(Room.READY)) {
@@ -157,6 +159,7 @@ public class RoomManage implements RoomService<Room> {
             System.err.println("Không thể hoàn tất thủ tục check-in. Phòng đang ở trạng thái: " + room.getStatus());
         }
     }
+
     public void doCheckOut(String username, int roomId) throws IOException, ParseException {
         Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
         UserManage userManage = UserManage.getUserManage();
@@ -184,6 +187,7 @@ public class RoomManage implements RoomService<Room> {
             System.err.println("Không thể hoàn tất thủ tục check-out. Phòng đang ở trạng thái: " + room.getStatus());
         }
     }
+
     public void cleanTheRoom(int roomId) throws IOException {
         Room room = roomManage.getRoomsList().get(roomManage.findIndexById(roomId));
         if (room.cleanTheRoom()) {
@@ -194,7 +198,7 @@ public class RoomManage implements RoomService<Room> {
         }
     }
 
-    public  void findInformationById() {
+    public void findInformationById() {
         int roomId = 0;
         System.out.print("Nhập số phòng: ");
         while (findIndexById(roomId) == -1) {
@@ -210,6 +214,7 @@ public class RoomManage implements RoomService<Room> {
         }
         displayInformationById(roomId);
     }
+
     public void findInformationByPrice() {
         System.out.println("Nhập giá Min: ");
         int minPrice = -1;

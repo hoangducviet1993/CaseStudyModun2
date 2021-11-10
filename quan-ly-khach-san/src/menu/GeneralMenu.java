@@ -13,19 +13,20 @@ public class GeneralMenu {
     public static final Scanner SCANNER = new Scanner(System.in);
 
     public static void MainMenu() throws ParseException, IOException {
-        try{
+        try {
             UserFile.readUserFromFile();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("File Not Found!!");
         }
-        try{;
+        try {
+            ;
             RoomFile.readRoomFromFile();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("File Not Found!!");
         }
-        try{
+        try {
             ReceiptFile.readReceiptFromFile();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("File Not Found!!");
         }
         int choice = -1;
@@ -35,10 +36,10 @@ public class GeneralMenu {
             choice = SCANNER.nextInt();
             switch (choice) {
                 case 1:
-                LoginMenu.loginToSystem();
+                    LoginMenu.loginToSystem();
                     break;
                 case 2:
-                AccountMenu.register();
+                    AccountMenu.register();
                     break;
                 case 0:
                     System.exit(0);

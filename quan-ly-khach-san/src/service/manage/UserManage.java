@@ -69,16 +69,16 @@ public class UserManage implements UserService<User> {
 
     @Override
     public void displayUserInformationByUsername(String username) {
-//        if (userManage.findIndexByUsername(username) != -1) {
-        System.out.println();
-        System.out.println("____________________________*** THÔNG TIN TÀI KHOẢN ***____________________________");
-        System.out.printf("%-20s %-10s %-20s %-25s %n", "Họ và tên", "Tuổi", "Số điện thoại", "Email");
-        System.out.println();
-        System.out.println(usersList.get(userManage.findIndexByUsername(username)));
-        System.out.println("___________________________________________________________________________________");
-        System.out.println();
-//        } else {
-//            System.err.println("Sai tên đăng nhập.");
-//        }
+        if (userManage.findIndexByUsername(username) != -1) {
+            System.out.println();
+            System.out.println("____________________________*** THÔNG TIN TÀI KHOẢN ***____________________________");
+            System.out.printf("%-20s %-10s %-20s %-25s %n", "Họ và tên", "Tuổi", "Số điện thoại", "Email");
+            System.out.println();
+            System.out.println(usersList.get(userManage.findIndexByUsername(username)));
+            System.out.println("___________________________________________________________________________________");
+            System.out.println();
+        } else {
+            System.err.println("Sai tên đăng nhập.");
+        }
     }
 }

@@ -37,7 +37,7 @@ public class UserCreate {
         return password;
     }
 
-    public static String createName(){
+    public static String createName() {
         System.out.print("Nhập tên người dùng: ");
         String name = SCANNER.nextLine();
         return name;
@@ -45,14 +45,14 @@ public class UserCreate {
 
     public static int createAge() {
         System.out.print("Nhập tuổi: ");
-        int age = 17 ;
-        while (age < 18){
+        int age = 17;
+        while (age < 18) {
             try {
                 age = SCANNER.nextInt();
-                if(age < 18){
+                if (age < 18) {
                     System.err.println("Bạn phải từ 18 tuổi trở lên: ");
                 }
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.err.println("Nhập số nguyên!:.");
             } finally {
                 SCANNER.nextLine();

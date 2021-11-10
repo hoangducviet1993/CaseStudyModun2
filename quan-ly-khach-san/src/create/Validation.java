@@ -14,11 +14,13 @@ public class Validation {
 
     public Validation() {
     }
+
     public static boolean validate(String string, String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();
     }
+
     public static int choiceExceptionHandling() {
         Scanner scanner = new Scanner(System.in);
         int choice = -1;

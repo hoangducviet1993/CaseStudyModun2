@@ -14,11 +14,12 @@ public class ReceiptCreate {
         System.out.print("Nhập số hóa đơn: ");
         String receiptId = SCANNER.nextLine();
         while (ReceiptManage.getReceiptManage().findIndexById(receiptId) != -1) {
-                System.out.println("Số hóa đơn đã tồn tại:");
-                receiptId = SCANNER.nextLine();
+            System.out.println("Số hóa đơn đã tồn tại:");
+            receiptId = SCANNER.nextLine();
         }
         return receiptId;
     }
+
     public static String createOldReceiptId() {
         System.out.print("Nhập số hóa đơn: ");
         String receiptId = SCANNER.nextLine();
@@ -28,11 +29,12 @@ public class ReceiptCreate {
         }
         return receiptId;
     }
-    public static String createDate(){
+
+    public static String createDate() {
         String date = SCANNER.nextLine();
         while (!Validation.validate(date, Validation.DATE_REGEX)) {
-                System.err.println("Ngày không hợp lệ:");
-                date = SCANNER.nextLine();
+            System.err.println("Ngày không hợp lệ:");
+            date = SCANNER.nextLine();
         }
         return date;
     }
