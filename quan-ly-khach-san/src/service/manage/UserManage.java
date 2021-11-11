@@ -72,7 +72,7 @@ public class UserManage implements UserService<User> {
         if (userManage.findIndexByUsername(username) != -1) {
             System.out.println();
             System.out.println("____________________________*** THÔNG TIN TÀI KHOẢN ***____________________________");
-            System.out.printf("%-20s %-10s %-20s %-25s %n", "Họ và tên", "Tuổi", "Số điện thoại", "Email");
+            System.out.printf("%-20s %-15s %-20s %-25s %n", "Họ và tên", "Ngày Sinh", "Số điện thoại", "Email");
             System.out.println();
             System.out.println(usersList.get(userManage.findIndexByUsername(username)));
             System.out.println("___________________________________________________________________________________");

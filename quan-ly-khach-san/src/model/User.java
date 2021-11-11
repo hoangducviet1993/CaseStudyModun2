@@ -2,7 +2,7 @@ package model;
 
 public class User {
     private String name;
-    private int age;
+    private String birthDay;
     private String phoneNumber;
     private String email;
     private String username;
@@ -11,9 +11,9 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, String phoneNumber, String email, String username, String password) {
+    public User(String name, String birthDay, String phoneNumber, String email, String username, String password) {
         this.name = name;
-        this.age = age;
+        this.birthDay = birthDay;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.username = username;
@@ -28,12 +28,12 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getBirthDay() {
+        return birthDay;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 
     public String getPhoneNumber() {
@@ -70,7 +70,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-10d %-20s %-25s", name, age, phoneNumber, email);
+        return String.format("%-20s %-15s %-20s %-25s", name, birthDay, phoneNumber, email);
     }
 }
 

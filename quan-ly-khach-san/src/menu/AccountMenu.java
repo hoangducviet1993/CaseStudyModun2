@@ -6,12 +6,13 @@ import fileIO.UserFile;
 import service.manage.UserManage;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class AccountMenu {
     public static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void register() throws IOException {
+    public static void register() throws IOException, ParseException {
         UserManage.getUserManage().add(UserCreate.createUser());
         UserFile.writeUserToFile();
         System.out.println("Đăng ký thành công: ");
@@ -37,7 +38,7 @@ public class AccountMenu {
         }
     }
 
-    public static void accountManage(String username) throws IOException {
+    public static void accountManage(String username) throws IOException, ParseException {
         int choice = -1;
         while (choice != 0) {
             ShowMenu.showAccountMenu();

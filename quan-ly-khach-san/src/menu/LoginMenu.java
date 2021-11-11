@@ -20,7 +20,6 @@ public class LoginMenu {
             username = SCANNER.nextLine();
             index = UserManage.getUserManage().findIndexByUsername(username);
         }
-//        User user = UserManage.getUserManage().getUsersList().get(index);
         System.out.print("Nhập mật khẩu: ");
         String password = SCANNER.nextLine();
         if (AccountMenu.login(username, password)) {

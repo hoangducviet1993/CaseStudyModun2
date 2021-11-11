@@ -1,5 +1,6 @@
 package menu;
 
+import create.Validation;
 import fileIO.ReceiptFile;
 import fileIO.RoomFile;
 import fileIO.UserFile;
@@ -15,25 +16,25 @@ public class GeneralMenu {
     public static void MainMenu() throws ParseException, IOException {
         try {
             UserFile.readUserFromFile();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NumberFormatException e) {
             System.err.println("File Not Found!!");
         }
         try {
             ;
             RoomFile.readRoomFromFile();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NumberFormatException e) {
             System.err.println("File Not Found!!");
         }
         try {
             ReceiptFile.readReceiptFromFile();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NumberFormatException e) {
             System.err.println("File Not Found!!");
         }
         int choice = -1;
         while (choice != 0) {
             ShowMenu.showLoginMenu();
             System.out.println("Nhập lựa chọn: ");
-            choice = SCANNER.nextInt();
+            choice = Validation.choiceExceptionHandling();
             switch (choice) {
                 case 1:
                     LoginMenu.loginToSystem();

@@ -17,10 +17,10 @@ public class RoomCreate {
             try {
                 roomId = SCANNER.nextInt();
                 if (RoomManage.getRoomManage().findIndexById(roomId) == -1) {
-                    System.err.println("Phòng không ồn tại: ");
+                    System.err.println("Phòng không ồn tại.");
                 }
                 if (roomId < 0) {
-                    System.err.println("Số phòng không hợp lệ: ");
+                    System.err.println("Số phòng không hợp lệ.");
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!! ");
@@ -41,7 +41,7 @@ public class RoomCreate {
                     System.err.println("Phòng đã tồn tại: ");
                 }
                 if (roomId < 0) {
-                    System.err.println("Số phòng không hợp lệ: ");
+                    System.err.println("Số phòng không hợp lệ.");
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!! ");
@@ -59,7 +59,7 @@ public class RoomCreate {
             try {
                 numberOfBed = SCANNER.nextInt();
                 if (numberOfBed < 0) {
-                    System.err.println("Số giường không thể nhỏ hơn 0: ");
+                    System.err.println("Số giường không thể nhỏ hơn 0.");
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!!");
@@ -75,7 +75,7 @@ public class RoomCreate {
             try {
                 numberOfToilet = SCANNER.nextInt();
                 if (numberOfToilet < 0) {
-                    System.err.println("Số lượng nhà vệ sinh không hợp lệ:.");
+                    System.err.println("Số lượng nhà vệ sinh không hợp lệ.");
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!!");
@@ -91,7 +91,7 @@ public class RoomCreate {
             try {
                 price = SCANNER.nextInt();
                 if (price < 0) {
-                    System.err.println("Số tiền phải lớn hơn 0: ");
+                    System.err.println("Số tiền phải lớn hơn 0.");
                 }
             } catch (InputMismatchException e) {
                 System.err.println("Error!!");

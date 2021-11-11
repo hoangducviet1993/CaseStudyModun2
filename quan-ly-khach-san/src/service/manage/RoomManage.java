@@ -35,9 +35,10 @@ public class RoomManage implements RoomService<Room> {
     public ArrayList<Room> getRoomsList() {
         if (roomsList == null) {
             roomsList = new ArrayList<>();
-            roomsList.add(new Room(101, 10000, Room.READY, 1, 2, "06/11/2021", "10/11/2021"));
-            roomsList.add(new Room(102, 10000, Room.READY, 1, 1, "7/11/2021", "10/11/2021"));
-            roomsList.add(new Room(103, 20000, Room.READY, 2, 2, "7/11/2021", "10/11/2021"));
+//            roomsList.add(new Room(101, 10000, Room.READY, 1, 2, "06/11/2021", "10/11/2021"));
+//            roomsList.add(new Room(102, 10000, Room.READY, 1, 1, "7/11/2021", "10/11/2021"));
+//            roomsList.add(new Room(103, 20000, Room.READY, 2, 2, "7/11/2021", "10/11/2021"));
+//
         }
         return roomsList;
     }

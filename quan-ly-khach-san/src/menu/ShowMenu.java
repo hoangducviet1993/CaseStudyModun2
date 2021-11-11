@@ -12,7 +12,7 @@ public class ShowMenu {
         System.out.println();
         System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "2. Đăng Ký: ", "✩", " ");
         System.out.println();
-        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát", "✩", " ");
+        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát trương trình: ", "✩", "");
         System.out.println();
         System.out.printf("%30s%-80s%30s", " ", "✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩", " ");
         System.out.println();
@@ -38,7 +38,7 @@ public class ShowMenu {
         System.out.println();
         System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "3. Quản lý hóa đơn", "✩", " ");
         System.out.println();
-        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát", "✩", " ");
+        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát menu: ", "✩", " ");
         System.out.println();
         System.out.printf("%30s%-80s%30s", " ", "✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩", " ");
         System.out.println();
@@ -55,7 +55,7 @@ public class ShowMenu {
         System.out.println();
         System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "3. Xóa tài khoản: ", "✩", " ");
         System.out.println();
-        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát", "✩", " ");
+        System.out.printf("%31s%30s%-46s%-20s%20s", "✩", " ", "0. Thoát menu: ", "✩", " ");
         System.out.println();
         System.out.printf("%30s%-80s%30s", " ", "✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩", " ");
         System.out.println();
@@ -87,7 +87,7 @@ public class ShowMenu {
         System.out.println();
         System.out.printf("%31s%25s%-51s%-20s%20s", "✩", " ", "10. Xóa Phòng: ", "✩", " ");
         System.out.println();
-        System.out.printf("%31s%25s%-51s%-20s%20s", "✩", " ", "0. Thoát! ", "✩", " ");
+        System.out.printf("%31s%25s%-51s%-20s%20s", "✩", " ", "0. Thoát menu: ", "✩", " ");
         System.out.println();
         System.out.printf("%30s%-80s%30s", " ", "✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩", " ");
         System.out.println();
@@ -107,7 +107,7 @@ public class ShowMenu {
         System.out.println();
         System.out.printf("%31s%20s%-56s%-20s%20s", "✩", " ", "4. In danh sách hóa đơn: ", "✩", " ");
         System.out.println();
-        System.out.printf("%31s%20s%-56s%-20s%20s", "✩", " ", "0. Thoát", "✩", " ");
+        System.out.printf("%31s%20s%-56s%-20s%20s", "✩", " ", "0. Thoát menu: ", "✩", " ");
         System.out.println();
         System.out.printf("%30s%-80s%30s", " ", "✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩✰✩", " ");
         System.out.println();

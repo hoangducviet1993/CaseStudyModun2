@@ -14,7 +14,7 @@ public class ReceiptCreate {
         System.out.print("Nhập số hóa đơn: ");
         String receiptId = SCANNER.nextLine();
         while (ReceiptManage.getReceiptManage().findIndexById(receiptId) != -1) {
-            System.out.println("Số hóa đơn đã tồn tại:");
+            System.out.println("Số hóa đơn đã tồn tại.");
             receiptId = SCANNER.nextLine();
         }
         return receiptId;
@@ -24,7 +24,7 @@ public class ReceiptCreate {
         System.out.print("Nhập số hóa đơn: ");
         String receiptId = SCANNER.nextLine();
         while (ReceiptManage.getReceiptManage().findIndexById(receiptId) == -1) {
-            System.out.println("Số hóa đơn không tồn tại, vui lòng nhập lại");
+            System.out.println("Số hóa đơn không tồn tại.");
             receiptId = SCANNER.nextLine();
         }
         return receiptId;
@@ -33,7 +33,7 @@ public class ReceiptCreate {
     public static String createDate() {
         String date = SCANNER.nextLine();
         while (!Validation.validate(date, Validation.DATE_REGEX)) {
-            System.err.println("Ngày không hợp lệ:");
+            System.err.println("Ngày không hợp lệ.");
             date = SCANNER.nextLine();
         }
         return date;
@@ -52,7 +52,7 @@ public class ReceiptCreate {
         String checkOut = createDate();
         while (DateCalculator.dateCompare(checkIn, checkOut) > 0) {
             if (DateCalculator.dateCompare(checkIn, checkOut) > 0) {
-                System.err.println("Ngày check-out phải sau ngày check-in!");
+                System.err.println("Ngày check-out phải sau ngày check-in.");
             }
             checkOut = createDate();
         }

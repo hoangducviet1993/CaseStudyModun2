@@ -11,10 +11,10 @@ public class UserFile {
         ArrayList<User> usersList = UserManage.getUserManage().getUsersList();
         FileWriter fileWriter = new FileWriter("src/fileIO/userManageFile.csv");
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        StringBuilder str = new StringBuilder("Họ và tên,Tuổi,Số điện thoại,Email,Tên đăng nhập,Password");
+        StringBuilder str = new StringBuilder("Họ và tên,Ngày Sinh,Số điện thoại,Email,Tên đăng nhập,Password");
         for (User user : usersList) {
             str.append("\n").append(user.getName()).append(",");
-            str.append(user.getAge()).append(",");
+            str.append(user.getBirthDay()).append(",");
             str.append(user.getPhoneNumber()).append(",");
             str.append(user.getEmail()).append(",");
             str.append(user.getUsername()).append(",");
@@ -32,12 +32,12 @@ public class UserFile {
         while ((content = bufferedReader.readLine()) != null) {
             String[] array = content.split(",");
             String fullName = array[0];
-            int age = Integer.parseInt(array[1]);
+            String birthday = array[1];
             String phoneNumber = array[2];
             String email = array[3];
             String username = array[4];
             String password = array[5];
-            usersList.add(new User(fullName, age, phoneNumber, email, username, password));
+            usersList.add(new User(fullName, birthday, phoneNumber, email, username, password));
         }
         UserManage.getUserManage().setUsersList(usersList);
         bufferedReader.close();
